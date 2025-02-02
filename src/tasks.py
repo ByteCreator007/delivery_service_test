@@ -1,8 +1,8 @@
 import httpx
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from app import models, database
-from app.utils import get_exchange_rate, set_exchange_rate
+from src import models, database
+from src.utils import get_exchange_rate, set_exchange_rate
 
 async def fetch_exchange_rate() -> float:
     url = "https://www.cbr-xml-daily.ru/daily_json.js"

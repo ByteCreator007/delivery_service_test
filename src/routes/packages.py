@@ -3,8 +3,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy.orm import selectinload
 from typing import List, Optional
-from app import schemas, models, database, tasks
-from app.utils import get_or_create_session
+from src import schemas, models, database, tasks
+from src.utils import get_or_create_session
 
 router = APIRouter()
 

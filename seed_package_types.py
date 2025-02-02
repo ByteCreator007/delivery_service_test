@@ -1,6 +1,6 @@
 import asyncio
-from app.database import async_session
-from app.models import PackageType
+from src.database import async_session
+from src.models import PackageType
 from sqlalchemy import text
 
 async def seed_package_types():

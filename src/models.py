@@ -9,7 +9,6 @@ class PackageType(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), unique=True, nullable=False)
 
-    # Связь с посылками (опционально)
     packages = relationship("Package", back_populates="package_type")
 
 class Package(Base):
@@ -20,6 +19,6 @@ class Package(Base):
     weight = Column(Float, nullable=False)
     type_id = Column(Integer, ForeignKey("package_types.id"), nullable=False)
     content_value = Column(Float, nullable=False)
-    shipping_cost = Column(Float, nullable=True)  # Если доставка не рассчитана, здесь будет None
+    shipping_cost = Column(Float, nullable=True)
 
     package_type = relationship("PackageType", back_populates="packages")

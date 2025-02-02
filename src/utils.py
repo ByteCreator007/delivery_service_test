@@ -3,7 +3,7 @@ from fastapi import Request, Response
 import redis.asyncio as redis
 
 SESSION_COOKIE_NAME = "session_id"
-redis_client = None  # Глобальный объект для клиента Redis
+redis_client = None
 
 def get_or_create_session(request: Request, response: Response) -> str:
     session_id = request.cookies.get(SESSION_COOKIE_NAME)
@@ -14,11 +14,9 @@ def get_or_create_session(request: Request, response: Response) -> str:
 
 async def init_redis():
     global redis_client
-    # Создаем клиент Redis по новому API, decode_responses=True для получения строковых значений
     redis_client = redis.from_url("redis://redis:6379", decode_responses=True)
 
 async def get_exchange_rate():
-    # Используем redis_client для получения значения
     rate = await redis_client.get("dollar_rate")
     if rate:
         return float(rate)

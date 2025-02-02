@@ -1,9 +1,3 @@
-__pycache__/
-*.py[cod]
-*.sqlite3
-.venv/
-venv/
-.env
-*.log
-docker-compose.override.yml
+# Создаётся автоматически
+*
 

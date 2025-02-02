@@ -2,13 +2,12 @@ import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from app.routes import packages, package_types
-from app import tasks, utils
+from src.routes import packages, package_types
+from src import tasks, utils
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 app = FastAPI(title="Микросервис Службы международной доставки")
 
-# Настраиваем шаблоны (директория с HTML-шаблонами, например, "templates")
 templates = Jinja2Templates(directory="templates")
 
 # Подключаем роутеры для работы с посылками и типами посылок
@@ -34,4 +33,4 @@ async def startup_event():
     scheduler.start()
 
 if __name__ == "__main__":
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("src.main:src", host="0.0.0.0", port=8000, reload=True)
