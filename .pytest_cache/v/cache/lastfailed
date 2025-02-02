@@ -1,0 +1,4 @@
+{
+  "tests/test_app.py::test_get_package_types": true,
+  "tests/test_app.py::test_register_package_and_get_it": true
+}
